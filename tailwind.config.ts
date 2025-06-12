@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -22,11 +23,27 @@ export default {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: {
+					DEFAULT: '#0F111A',
+					surface: '#1B1E2A',
+					elevated: '#272B3B',
+				},
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: '#0079FA',
+					light: '#339EFF',
+					dark: '#005FD4',
 					foreground: 'hsl(var(--primary-foreground))'
+				},
+				accent: {
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))',
+					pink: '#FF449F',
+				},
+				neutral: {
+					white: '#FFFFFF',
+					gray: '#8A8A9F',
+					dark: '#0F111A'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -39,10 +56,6 @@ export default {
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
-				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -63,8 +76,24 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif']
+			},
+			fontSize: {
+				xl: ['1.25rem', { lineHeight: '1.75rem' }],
+				lg: ['1.125rem', { lineHeight: '1.5rem' }],
+				base: ['1rem', { lineHeight: '1.5rem' }],
+			},
+			spacing: {
+				'1': '0.25rem',
+				'2': '0.5rem', 
+				'3': '0.75rem',
+				'4': '1rem',
+				'6': '1.5rem',
+				'8': '2rem'
+			},
 			borderRadius: {
-				lg: 'var(--radius)',
+				lg: '1rem',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
