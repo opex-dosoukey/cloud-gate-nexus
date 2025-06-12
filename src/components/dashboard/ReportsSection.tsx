@@ -5,15 +5,15 @@ import { FileText, Plus, ArrowRight } from 'lucide-react';
 
 const ReportsSection = () => {
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Reports</CardTitle>
+        <CardTitle className="text-foreground">Reports</CardTitle>
       </CardHeader>
       <CardContent className="text-center py-8">
         <FileText className="h-16 w-16 text-blue-400 mx-auto mb-4" />
-        <p className="text-white font-medium mb-2">Created Reports: 12</p>
+        <p className="text-foreground font-medium mb-2">Created Reports: 12</p>
         <div className="flex flex-col sm:flex-row gap-2 justify-center">
-          <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800">
+          <Button variant="outline" className="border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
             View all
             <ArrowRight className="h-4 w-4 ml-2" />
           </Button>

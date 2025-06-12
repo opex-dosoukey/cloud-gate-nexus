@@ -24,17 +24,17 @@ const TopUsedServices = () => {
   ];
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Top Used Services</CardTitle>
+        <CardTitle className="text-foreground">Top Used Services</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {services.map((service, index) => (
-          <div key={index} className="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+          <div key={index} className="flex items-center space-x-3 p-3 bg-accent rounded-lg">
             <span className="text-lg">{service.icon}</span>
             <div className="flex-1">
-              <p className="text-white font-medium">{service.name}</p>
-              <p className="text-sm text-slate-400">{service.subtitle}</p>
+              <p className="text-foreground font-medium">{service.name}</p>
+              <p className="text-sm text-muted-foreground">{service.subtitle}</p>
             </div>
           </div>
         ))}

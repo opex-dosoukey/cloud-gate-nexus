@@ -13,31 +13,31 @@ const CostChart = () => {
   ];
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Cost Trends</CardTitle>
-        <p className="text-sm text-slate-400">Monthly cloud spending across all providers</p>
+        <CardTitle className="text-foreground">Cost Trends</CardTitle>
+        <p className="text-sm text-muted-foreground">Monthly cloud spending across all providers</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis 
               dataKey="month" 
-              stroke="#9CA3AF"
+              stroke="hsl(var(--muted-foreground))"
               fontSize={12}
             />
             <YAxis 
-              stroke="#9CA3AF"
+              stroke="hsl(var(--muted-foreground))"
               fontSize={12}
               tickFormatter={(value) => `$${value}`}
             />
             <Tooltip 
               contentStyle={{
-                backgroundColor: '#1F2937',
-                border: '1px solid #374151',
+                backgroundColor: 'hsl(var(--popover))',
+                border: '1px solid hsl(var(--border))',
                 borderRadius: '8px',
-                color: '#F9FAFB'
+                color: 'hsl(var(--popover-foreground))'
               }}
               formatter={(value) => [`$${value}`, '']}
             />

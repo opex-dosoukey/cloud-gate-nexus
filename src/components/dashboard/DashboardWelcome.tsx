@@ -9,7 +9,7 @@ const DashboardWelcome = () => {
         <h1 className="text-2xl font-bold text-pink-400 mb-2">Good Morning Mohamed</h1>
         <div className="flex items-center space-x-2">
           <span className="text-blue-400">Custom Dashboard</span>
-          <span className="text-slate-400">ℹ️</span>
+          <span className="text-muted-foreground">ℹ️</span>
         </div>
       </div>
       
@@ -26,11 +26,11 @@ const DashboardWelcome = () => {
           <Plus className="h-4 w-4 mr-2" />
           Add Service Key
         </Button>
-        <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800">
+        <Button variant="outline" className="border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
           <Filter className="h-4 w-4 mr-2" />
           Filter by
         </Button>
-        <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800">
+        <Button variant="outline" className="border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground">
           <Download className="h-4 w-4 mr-2" />
           Export
         </Button>

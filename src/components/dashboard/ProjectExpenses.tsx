@@ -13,20 +13,20 @@ const ProjectExpenses = () => {
   ];
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Current Project Expenses</CardTitle>
+        <CardTitle className="text-foreground">Current Project Expenses</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {expenses.map((expense, index) => (
-          <div key={index} className="flex items-center justify-between p-3 bg-slate-800 rounded-lg">
+          <div key={index} className="flex items-center justify-between p-3 bg-accent rounded-lg">
             <div className="flex items-center space-x-3">
               <span className="text-lg">{expense.icon}</span>
-              <span className="text-white font-medium">{expense.name}</span>
+              <span className="text-foreground font-medium">{expense.name}</span>
             </div>
             <div className="flex items-center space-x-1">
-              <span className="text-white font-bold">{expense.amount}</span>
-              <span className="text-slate-400 text-sm">{expense.currency}</span>
+              <span className="text-foreground font-bold">{expense.amount}</span>
+              <span className="text-muted-foreground text-sm">{expense.currency}</span>
             </div>
           </div>
         ))}

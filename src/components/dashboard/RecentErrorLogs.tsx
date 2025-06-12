@@ -22,19 +22,19 @@ const RecentErrorLogs = () => {
   ];
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Recent Error Logs</CardTitle>
+        <CardTitle className="text-foreground">Recent Error Logs</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {errorLogs.map((log, index) => (
-          <div key={index} className="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+          <div key={index} className="flex items-center space-x-3 p-3 bg-accent rounded-lg">
             <AlertCircle className="h-5 w-5 text-red-400" />
             <div className="flex-1">
-              <p className="text-white font-medium">{log.title}</p>
-              <p className="text-sm text-slate-400">{log.subtitle}</p>
+              <p className="text-foreground font-medium">{log.title}</p>
+              <p className="text-sm text-muted-foreground">{log.subtitle}</p>
             </div>
-            <span className="text-xs text-slate-400">{log.time}</span>
+            <span className="text-xs text-muted-foreground">{log.time}</span>
           </div>
         ))}
       </CardContent>

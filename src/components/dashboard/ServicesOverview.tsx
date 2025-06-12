@@ -11,16 +11,16 @@ const ServicesOverview = () => {
   ];
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Total Services Overview</CardTitle>
+        <CardTitle className="text-foreground">Total Services Overview</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="flex flex-col items-center p-4 bg-slate-800 rounded-lg">
+            <div key={index} className="flex flex-col items-center p-4 bg-accent rounded-lg">
               <service.icon className={`h-8 w-8 ${service.color} mb-2`} />
-              <span className="text-white font-semibold">{service.label}: {service.count}</span>
+              <span className="text-foreground font-semibold">{service.label}: {service.count}</span>
             </div>
           ))}
         </div>

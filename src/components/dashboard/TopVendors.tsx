@@ -10,15 +10,15 @@ const TopVendors = () => {
   ];
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Top Vendors by Services</CardTitle>
+        <CardTitle className="text-foreground">Top Vendors by Services</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 gap-4">
           {vendors.map((vendor, index) => (
-            <div key={index} className="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
-              <div className="w-8 h-8 flex items-center justify-center bg-white rounded-sm">
+            <div key={index} className="flex items-center space-x-3 p-3 bg-accent rounded-lg">
+              <div className="w-8 h-8 flex items-center justify-center bg-background rounded-sm">
                 <img 
                   src={vendor.logo} 
                   alt={`${vendor.name} logo`}
@@ -32,12 +32,12 @@ const TopVendors = () => {
                     }
                   }}
                 />
-                <span className="text-xs font-bold text-slate-700 hidden">
+                <span className="text-xs font-bold text-muted-foreground hidden">
                   {vendor.name.charAt(0)}
                 </span>
               </div>
               <div>
-                <p className="text-white font-medium">{vendor.name}: {vendor.count}</p>
+                <p className="text-foreground font-medium">{vendor.name}: {vendor.count}</p>
               </div>
             </div>
           ))}

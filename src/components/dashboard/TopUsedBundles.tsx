@@ -18,15 +18,15 @@ const TopUsedBundles = () => {
   ];
 
   return (
-    <Card className="bg-slate-900 border-slate-800">
+    <Card className="bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-white">Top Used Bundles</CardTitle>
+        <CardTitle className="text-foreground">Top Used Bundles</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {bundles.map((bundle, index) => (
-          <div key={index} className="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+          <div key={index} className="flex items-center space-x-3 p-3 bg-accent rounded-lg">
             <span className="text-2xl">{bundle.icon}</span>
-            <p className="text-white font-medium">{bundle.name}</p>
+            <p className="text-foreground font-medium">{bundle.name}</p>
           </div>
         ))}
       </CardContent>
