@@ -1,19 +1,18 @@
-
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Cloud, 
   Grid,
-  Subscription,
+  CreditCard,
   Database,
   ClipboardList,
   Eye,
   Receipt,
   Calculator,
   Key,
-  OfficeBuilding,
+  Building2,
   Briefcase,
   User,
-  ExclamationCircle
+  AlertCircle
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -34,7 +33,7 @@ import {
 const sidebarData = [
   { type: "link", label: "Dashboard", icon: Grid, route: "/dashboard", active: true },
   { type: "group", label: "Services" },
-  { type: "link", label: "Subscriptions", icon: Subscription, route: "/services/subscriptions", badge: 4 },
+  { type: "link", label: "Subscriptions", icon: CreditCard, route: "/services/subscriptions", badge: 4 },
   { type: "link", label: "All Resources", icon: Database, route: "/services/resources" },
   { type: "group", label: "Monitoring" },
   { type: "link", label: "Audit Log", icon: ClipboardList, route: "/monitoring/audit" },
@@ -45,11 +44,11 @@ const sidebarData = [
   { type: "link", label: "All Resources Expenses", icon: Calculator, route: "/finops/expenses" },
   { type: "group", label: "Settings" },
   { type: "link", label: "Service Keys", icon: Key, route: "/settings/keys" },
-  { type: "link", label: "Departments", icon: OfficeBuilding, route: "/settings/departments", badge: 4 },
+  { type: "link", label: "Departments", icon: Building2, route: "/settings/departments", badge: 4 },
   { type: "link", label: "Projects", icon: Briefcase, route: "/settings/projects", badge: 4 },
   { type: "link", label: "Users", icon: User, route: "/settings/users" },
   { type: "group", label: "Support" },
-  { type: "link", label: "Issues", icon: ExclamationCircle, route: "/support/issues" }
+  { type: "link", label: "Issues", icon: AlertCircle, route: "/support/issues" }
 ];
 
 export function AppSidebar() {
@@ -147,10 +146,10 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton 
                   asChild
-                  isActive={isActive}
+                  isActive={location.pathname === "/dashboard"}
                   className={cn(
                     "w-full justify-start py-2 px-4 rounded-lg transition-all duration-200",
-                    isActive 
+                    location.pathname === "/dashboard"
                       ? "bg-background-elevated text-neutral-white border-l-2 border-primary" 
                       : "text-neutral-gray hover:text-neutral-white hover:bg-background-elevated"
                   )}
@@ -166,7 +165,68 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {/* Grouped items */}
-        {renderSidebarItems()}
+        {(() => {
+          const items = [];
+          let currentGroup = null;
+
+          sidebarData.forEach((item, index) => {
+            if (item.type === "group") {
+              if (currentGroup) {
+                items.push(currentGroup);
+              }
+              currentGroup = {
+                label: item.label,
+                items: []
+              };
+            } else if (item.type === "link" && currentGroup) {
+              const isActive = location.pathname === item.route;
+              currentGroup.items.push(
+                <SidebarMenuItem key={item.route}>
+                  <SidebarMenuButton 
+                    asChild
+                    isActive={isActive}
+                    className={cn(
+                      "w-full justify-start py-2 px-4 rounded-lg transition-all duration-200 relative",
+                      isActive 
+                        ? "bg-background-elevated text-neutral-white border-l-2 border-primary" 
+                        : "text-neutral-gray hover:text-neutral-white hover:bg-background-elevated"
+                    )}
+                  >
+                    <Link to={item.route}>
+                      <item.icon className="h-5 w-5" />
+                      <span className="font-medium">{item.label}</span>
+                      {item.badge && (
+                        <Badge variant="count" className="ml-auto">
+                          {item.badge}
+                        </Badge>
+                      )}
+                      {item.dot && (
+                        <Badge variant="dot" className="absolute top-1 right-1" />
+                      )}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              );
+            }
+          });
+
+          if (currentGroup) {
+            items.push(currentGroup);
+          }
+
+          return items.map((group, index) => (
+            <SidebarGroup key={index}>
+              <SidebarGroupLabel className="uppercase text-xs text-neutral-gray mb-2 pl-4">
+                {group.label}
+              </SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu className="space-y-1">
+                  {group.items}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          ));
+        })()}
       </SidebarContent>
 
       <SidebarFooter className="p-4">
