@@ -2,10 +2,17 @@
 import { useState } from 'react';
 import Sidebar from '@/components/dashboard/Sidebar';
 import DashboardHeader from '@/components/dashboard/DashboardHeader';
-import MetricsCards from '@/components/dashboard/MetricsCards';
+import DashboardWelcome from '@/components/dashboard/DashboardWelcome';
+import ServiceSummary from '@/components/dashboard/ServiceSummary';
+import ServicesOverview from '@/components/dashboard/ServicesOverview';
+import TopVendors from '@/components/dashboard/TopVendors';
+import HealthStatus from '@/components/dashboard/HealthStatus';
+import RecentErrorLogs from '@/components/dashboard/RecentErrorLogs';
+import TopUsedBundles from '@/components/dashboard/TopUsedBundles';
+import TopUsedServices from '@/components/dashboard/TopUsedServices';
+import ReportsSection from '@/components/dashboard/ReportsSection';
 import CostChart from '@/components/dashboard/CostChart';
-import ResourcesTable from '@/components/dashboard/ResourcesTable';
-import UsageChart from '@/components/dashboard/UsageChart';
+import ProjectExpenses from '@/components/dashboard/ProjectExpenses';
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -18,19 +25,29 @@ const Dashboard = () => {
         <DashboardHeader toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
         
         <main className="p-6 space-y-6">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">Dashboard Overview</h1>
-            <p className="text-slate-400">Monitor your multi-cloud infrastructure and costs</p>
-          </div>
-
-          <MetricsCards />
+          <DashboardWelcome />
+          <ServiceSummary />
           
+          {/* First row of cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <ServicesOverview />
+            <TopVendors />
+            <HealthStatus />
+            <ReportsSection />
+          </div>
+          
+          {/* Second row of cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <RecentErrorLogs />
+            <TopUsedBundles />
+            <TopUsedServices />
+          </div>
+          
+          {/* Bottom section with charts */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CostChart />
-            <UsageChart />
+            <ProjectExpenses />
           </div>
-          
-          <ResourcesTable />
         </main>
       </div>
     </div>

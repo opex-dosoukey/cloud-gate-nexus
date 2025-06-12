@@ -1,0 +1,45 @@
+
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { AlertCircle } from 'lucide-react';
+
+const RecentErrorLogs = () => {
+  const errorLogs = [
+    {
+      title: 'Compute Engine Instance',
+      subtitle: 'WebServer-Instance-01',
+      time: 'Just now'
+    },
+    {
+      title: 'Compute Engine Instance', 
+      subtitle: 'WebServer-Instance-01',
+      time: '2 min ago'
+    },
+    {
+      title: 'Compute Engine Instance',
+      subtitle: 'WebServer-Instance-01', 
+      time: '5 min ago'
+    }
+  ];
+
+  return (
+    <Card className="bg-slate-900 border-slate-800">
+      <CardHeader>
+        <CardTitle className="text-white">Recent Error Logs</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {errorLogs.map((log, index) => (
+          <div key={index} className="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+            <AlertCircle className="h-5 w-5 text-red-400" />
+            <div className="flex-1">
+              <p className="text-white font-medium">{log.title}</p>
+              <p className="text-sm text-slate-400">{log.subtitle}</p>
+            </div>
+            <span className="text-xs text-slate-400">{log.time}</span>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
+  );
+};
+
+export default RecentErrorLogs;
