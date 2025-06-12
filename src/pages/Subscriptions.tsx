@@ -1,4 +1,3 @@
-
 import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/dashboard/AppSidebar';
 import DashboardHeader from '@/components/dashboard/DashboardHeader';
@@ -7,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Link } from 'react-router-dom';
 
 const subscriptionsData = [
   {
@@ -194,8 +194,10 @@ const Subscriptions = () => {
                           </div>
                         </TableCell>
                         <TableCell>
-                          <Button variant="ghost" size="sm" className="text-primary hover:text-primary-light">
-                            View Service →
+                          <Button variant="ghost" size="sm" className="text-primary hover:text-primary-light" asChild>
+                            <Link to={`/services/subscriptions/${subscription.id}`}>
+                              View Service →
+                            </Link>
                           </Button>
                         </TableCell>
                       </TableRow>
