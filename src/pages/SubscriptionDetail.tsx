@@ -1,4 +1,3 @@
-
 import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/dashboard/AppSidebar';
 import DashboardHeader from '@/components/dashboard/DashboardHeader';
@@ -55,7 +54,8 @@ const subscriptionDetails = {
 
 const SubscriptionDetail = () => {
   const { id } = useParams();
-  const subscription = subscriptionDetails[id as keyof typeof subscriptionDetails];
+  const subscriptionId = parseInt(id || '1', 10);
+  const subscription = subscriptionDetails[subscriptionId as keyof typeof subscriptionDetails];
 
   if (!subscription) {
     return <div>Subscription not found</div>;
