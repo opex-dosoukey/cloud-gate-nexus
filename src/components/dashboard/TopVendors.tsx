@@ -26,7 +26,10 @@ const TopVendors = () => {
                   onError={(e) => {
                     // Fallback to text if image fails to load
                     e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextElementSibling.style.display = 'block';
+                    const fallbackElement = e.currentTarget.nextElementSibling as HTMLElement;
+                    if (fallbackElement) {
+                      fallbackElement.style.display = 'block';
+                    }
                   }}
                 />
                 <span className="text-xs font-bold text-slate-700 hidden">
