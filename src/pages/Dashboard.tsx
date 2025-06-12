@@ -16,40 +16,42 @@ import ProjectExpenses from '@/components/dashboard/ProjectExpenses';
 
 const Dashboard = () => {
   return (
-    <SidebarProvider defaultOpen={true}>
-      <div className="min-h-screen flex w-full bg-slate-950">
-        <AppSidebar />
-        <SidebarInset>
-          <DashboardHeader />
-          
-          <main className="p-6 space-y-6">
-            <DashboardWelcome />
-            <ServiceSummary />
+    <div className="dark">
+      <SidebarProvider defaultOpen={true}>
+        <div className="min-h-screen flex w-full bg-background">
+          <AppSidebar />
+          <SidebarInset>
+            <DashboardHeader />
             
-            {/* First row of cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
-              <ServicesOverview />
-              <TopVendors />
-              <HealthStatus />
-              <ReportsSection />
-            </div>
-            
-            {/* Second row of cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <RecentErrorLogs />
-              <TopUsedBundles />
-              <TopUsedServices />
-            </div>
-            
-            {/* Bottom section with charts */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <CostChart />
-              <ProjectExpenses />
-            </div>
-          </main>
-        </SidebarInset>
-      </div>
-    </SidebarProvider>
+            <main className="p-6 space-y-6">
+              <DashboardWelcome />
+              <ServiceSummary />
+              
+              {/* First row of cards */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+                <ServicesOverview />
+                <TopVendors />
+                <HealthStatus />
+                <ReportsSection />
+              </div>
+              
+              {/* Second row of cards */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <RecentErrorLogs />
+                <TopUsedBundles />
+                <TopUsedServices />
+              </div>
+              
+              {/* Bottom section with charts */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <CostChart />
+                <ProjectExpenses />
+              </div>
+            </main>
+          </SidebarInset>
+        </div>
+      </SidebarProvider>
+    </div>
   );
 };
 

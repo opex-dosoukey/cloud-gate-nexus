@@ -65,7 +65,7 @@ const menuItems = [
     title: 'Settings',
     icon: Settings,
     path: '/settings',
-    color: 'text-slate-400'
+    color: 'text-muted-foreground'
   }
 ];
 
@@ -73,19 +73,19 @@ export function AppSidebar() {
   const location = useLocation();
 
   return (
-    <Sidebar className="bg-slate-900 border-slate-800">
-      <SidebarHeader className="border-b border-slate-800 p-4">
+    <Sidebar className="bg-sidebar border-sidebar-border">
+      <SidebarHeader className="border-b border-sidebar-border p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3 group-data-[collapsible=icon]:justify-center">
             <div className="relative">
               <Cloud className="h-8 w-8 text-blue-400" />
               <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full"></div>
             </div>
-            <span className="text-xl font-bold text-white group-data-[collapsible=icon]:hidden">
+            <span className="text-xl font-bold text-sidebar-foreground group-data-[collapsible=icon]:hidden">
               Cloud Gate
             </span>
           </div>
-          <SidebarTrigger className="text-slate-400 hover:text-white hover:bg-slate-800" />
+          <SidebarTrigger className="text-muted-foreground hover:text-sidebar-foreground hover:bg-sidebar-accent" />
         </div>
       </SidebarHeader>
 
@@ -104,8 +104,8 @@ export function AppSidebar() {
                       className={cn(
                         "w-full justify-start px-3 py-3 rounded-lg transition-all duration-200",
                         isActive 
-                          ? "bg-slate-800 text-white" 
-                          : "text-slate-400 hover:text-white hover:bg-slate-800/50"
+                          ? "bg-sidebar-accent text-sidebar-foreground" 
+                          : "text-muted-foreground hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
                       )}
                     >
                       <Link to={item.path}>
@@ -125,9 +125,9 @@ export function AppSidebar() {
       </SidebarContent>
 
       <SidebarFooter className="p-4">
-        <div className="bg-slate-800 rounded-lg p-4 group-data-[collapsible=icon]:hidden">
-          <div className="text-sm text-slate-300 mb-2">Need help?</div>
-          <div className="text-xs text-slate-400">
+        <div className="bg-sidebar-accent rounded-lg p-4 group-data-[collapsible=icon]:hidden">
+          <div className="text-sm text-sidebar-foreground mb-2">Need help?</div>
+          <div className="text-xs text-muted-foreground">
             Contact our support team for assistance
           </div>
         </div>
