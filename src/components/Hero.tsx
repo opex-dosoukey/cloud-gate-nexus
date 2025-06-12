@@ -1,70 +1,62 @@
 
-import { ArrowRight, Cloud, Sparkles } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   return (
-    <section className="relative pt-20 pb-32 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-slate-800/50 border border-slate-700/50 rounded-full px-4 py-2 mb-8">
-            <Sparkles className="h-4 w-4 text-blue-400" />
-            <span className="text-sm text-slate-300">Advanced Multi-Cloud Orchestration</span>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Orchestrate Your
-            <br />
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            The Future of{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Multi-Cloud
-            </span>
-            <br />
-            Environment
+            </span>{' '}
+            Management
           </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-            The most advanced Multi-Cloud Marketplace for enterprises to optimize, govern, and automate their cloud infrastructure across all major providers.
+          
+          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Orchestrate, optimize, and govern your multi-cloud environments with Cloud Gate's 
+            advanced marketplace for Operations, Financials, and Automation.
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Link to="/dashboard">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 h-auto group"
-              >
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
                 Start Free Trial
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-slate-600 text-slate-300 hover:bg-slate-800 text-lg px-8 py-6 h-auto"
-            >
+            
+            <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-4 text-lg">
+              <Play className="mr-2 h-5 w-5" />
               Watch Demo
             </Button>
           </div>
-
-          {/* Trust Indicators */}
-          <div className="text-center">
-            <p className="text-sm text-slate-400 mb-6">Trusted by leading enterprises worldwide</p>
-            <div className="flex flex-wrap items-center justify-center space-x-8 opacity-60">
-              {['AWS', 'Azure', 'Google Cloud', 'Oracle', 'IBM Cloud'].map((provider) => (
-                <div key={provider} className="flex items-center space-x-2 text-slate-500">
-                  <Cloud className="h-5 w-5" />
-                  <span className="font-medium">{provider}</span>
+          
+          {/* Hero Visual */}
+          <div className="relative">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-slate-700 p-8 shadow-2xl">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                  <div className="h-4 w-4 bg-blue-500 rounded-full mb-4"></div>
+                  <h3 className="text-white font-semibold mb-2">Operations</h3>
+                  <p className="text-slate-400 text-sm">Monitor and manage your cloud infrastructure</p>
                 </div>
-              ))}
+                
+                <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                  <div className="h-4 w-4 bg-green-500 rounded-full mb-4"></div>
+                  <h3 className="text-white font-semibold mb-2">FinOps</h3>
+                  <p className="text-slate-400 text-sm">Optimize costs and financial governance</p>
+                </div>
+                
+                <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                  <div className="h-4 w-4 bg-purple-500 rounded-full mb-4"></div>
+                  <h3 className="text-white font-semibold mb-2">Automation</h3>
+                  <p className="text-slate-400 text-sm">Streamline workflows and processes</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
