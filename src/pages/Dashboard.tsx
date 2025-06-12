@@ -1,6 +1,6 @@
 
-import { useState } from 'react';
-import Sidebar from '@/components/dashboard/Sidebar';
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { AppSidebar } from '@/components/dashboard/AppSidebar';
 import DashboardHeader from '@/components/dashboard/DashboardHeader';
 import DashboardWelcome from '@/components/dashboard/DashboardWelcome';
 import ServiceSummary from '@/components/dashboard/ServiceSummary';
@@ -15,42 +15,41 @@ import CostChart from '@/components/dashboard/CostChart';
 import ProjectExpenses from '@/components/dashboard/ProjectExpenses';
 
 const Dashboard = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
   return (
-    <div className="min-h-screen bg-slate-950 flex">
-      <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
-      
-      <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-16'}`}>
-        <DashboardHeader toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-        
-        <main className="p-6 space-y-6">
-          <DashboardWelcome />
-          <ServiceSummary />
+    <SidebarProvider defaultOpen={true}>
+      <div className="min-h-screen flex w-full bg-slate-950">
+        <AppSidebar />
+        <SidebarInset>
+          <DashboardHeader />
           
-          {/* First row of cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
-            <ServicesOverview />
-            <TopVendors />
-            <HealthStatus />
-            <ReportsSection />
-          </div>
-          
-          {/* Second row of cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <RecentErrorLogs />
-            <TopUsedBundles />
-            <TopUsedServices />
-          </div>
-          
-          {/* Bottom section with charts */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CostChart />
-            <ProjectExpenses />
-          </div>
-        </main>
+          <main className="p-6 space-y-6">
+            <DashboardWelcome />
+            <ServiceSummary />
+            
+            {/* First row of cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+              <ServicesOverview />
+              <TopVendors />
+              <HealthStatus />
+              <ReportsSection />
+            </div>
+            
+            {/* Second row of cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <RecentErrorLogs />
+              <TopUsedBundles />
+              <TopUsedServices />
+            </div>
+            
+            {/* Bottom section with charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <CostChart />
+              <ProjectExpenses />
+            </div>
+          </main>
+        </SidebarInset>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 
